@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sreeram Radhakrishnan</title>
+<meta name="description" content="Sreeram Radhakrishnan, Electrical Engineering undergraduate at IIT Madras. Research in computer architecture, neuromorphic computing and AI hardware.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #15202B;
+    --text: #36414D;
+    --muted: #6A7582;
+    --line: #E3E7EC;
+    --soft: #F4F6F9;
+    --accent: #1B4F8C;
+    --accent-soft: #E9F0F8;
+    --serif: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    color-scheme: light;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  html { scroll-behavior: smooth; scroll-padding-top: calc(80px + env(safe-area-inset-top, 0px)); }
+  body { margin: 0; background: #fff; color: var(--text); font-family: var(--sans); font-size: 16.5px; line-height: 1.7; font-feature-settings: "cv11", "ss01"; -webkit-font-smoothing: antialiased; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  p { margin: 0 0 1em; }
+  .wrap { width: min(880px, 100% - 3rem); margin-inline: auto; }
+
+  /* Top bar */
+  .topbar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: rgba(255,255,255,.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  .topbar .wrap { display: flex; align-items: center; justify-content: space-between; height: 62px; gap: 1rem; }
+  .topbar .brand { font-family: var(--serif); font-weight: 650; font-size: 1.02rem; letter-spacing: -0.01em; color: var(--ink); white-space: nowrap; }
+  .topbar .brand:hover { text-decoration: none; }
+  .topbar nav { display: flex; gap: 1.75rem; }
+  .topbar nav a { color: var(--muted); font-size: .95rem; font-weight: 500; }
+  .topbar nav a:hover { color: var(--ink); text-decoration: none; }
+
+  /* Profile header */
+  .profile { display: grid; grid-template-columns: 240px 1fr; gap: 2.75rem; align-items: center; padding: 4.5rem 0 3.5rem; }
+  .photo { position: relative; width: 240px; aspect-ratio: 3 / 4; border-radius: 14px; overflow: hidden; background: linear-gradient(160deg, var(--accent-soft), #DCE5F0); display: grid; place-items: center; font-family: var(--serif); font-size: 3rem; font-weight: 600; letter-spacing: -0.02em; color: var(--accent); }
+  .photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .profile h1 { font-family: var(--serif); font-weight: 700; font-size: clamp(2.1rem, 5vw, 2.75rem); line-height: 1.1; letter-spacing: -0.025em; color: var(--ink); margin: 0 0 .6rem; }
+  .position { font-size: 1.08rem; color: var(--text); margin: 0; line-height: 1.5; }
+  .position span { display: block; color: var(--muted); }
+  .links { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.4rem; padding: 0; list-style: none; }
+  .links a { display: inline-flex; align-items: center; gap: .5rem; min-height: 40px; padding: .4rem .9rem; border: 1px solid var(--line); border-radius: 8px; color: var(--ink); font-size: .92rem; font-weight: 500; transition: border-color .15s, background-color .15s; }
+  .links a:hover { border-color: #C5CFDA; background: var(--soft); text-decoration: none; }
+  .links svg { width: 17px; height: 17px; color: var(--accent); flex: none; }
+
+  /* Sections */
+  section.block { padding: 3rem 0; border-top: 1px solid var(--line); }
+  section.block h2 { font-family: var(--serif); font-weight: 650; font-size: 1.4rem; letter-spacing: -0.015em; color: var(--ink); margin: 0 0 1.5rem; }
+  .lead { font-size: 1.08rem; max-width: 68ch; }
+  .nowrap { white-space: nowrap; }
+  .quote { margin: 2.25rem 0 0; padding: .25rem 0 .25rem 1.25rem; border-left: 3px solid var(--accent); max-width: 60ch; font-family: "Lora", Georgia, serif; font-style: italic; font-size: 1.02rem; line-height: 1.55; color: var(--ink); }
+
+  /* Publications */
+  .pub-group { display: grid; grid-template-columns: 7.5rem 1fr; gap: 1.5rem; }
+  .pub-group + .pub-group { margin-top: 2.25rem; }
+  .year { font-size: .95rem; font-weight: 600; color: var(--muted); padding-top: .15rem; }
+  .pub { margin: 0; }
+  .pub + .pub { margin-top: 1.75rem; }
+  .venue-tag { display: inline-block; font-size: .78rem; font-weight: 600; letter-spacing: .02em; color: var(--accent); background: var(--accent-soft); border-radius: 5px; padding: .1rem .5rem; margin-bottom: .5rem; }
+  .venue-tag.pending { color: var(--muted); background: var(--soft); }
+  .pub h3 { font-size: 1.08rem; font-weight: 600; line-height: 1.45; color: var(--ink); margin: 0 0 .3rem; }
+  .pub h3 a { color: var(--ink); }
+  .pub h3 a:hover { color: var(--accent); }
+  .authors { margin: 0 0 .15rem; font-size: .96rem; }
+  .authors strong { color: var(--ink); font-weight: 600; }
+  .venue { margin: 0 0 .7rem; font-size: .96rem; color: var(--muted); font-style: italic; }
+  .summary { font-size: .96rem; margin: 0 0 .9rem; max-width: 66ch; }
+  .actions { display: flex; flex-wrap: wrap; gap: .5rem; }
+  .actions a, .actions button { font: inherit; font-size: .85rem; font-weight: 500; color: var(--accent); background: #fff; border: 1px solid #C9D6E6; border-radius: 6px; padding: .25rem .75rem; cursor: pointer; }
+  .actions a:hover, .actions button:hover { background: var(--accent-soft); text-decoration: none; }
+  .bibtex { display: none; position: relative; margin-top: .9rem; }
+  .bibtex.open { display: block; }
+  .bibtex pre { margin: 0; background: var(--soft); border: 1px solid var(--line); border-radius: 8px; padding: 1rem 1.1rem; font-size: .8rem; line-height: 1.55; overflow-x: auto; color: var(--ink); }
+  .bibtex .copy { position: absolute; top: .5rem; right: .5rem; font: inherit; font-size: .78rem; background: #fff; border: 1px solid var(--line); border-radius: 5px; padding: .15rem .55rem; color: var(--text); cursor: pointer; }
+  .scholar-note { margin-top: 2.25rem; font-size: .94rem; color: var(--muted); }
+
+  /* Contact */
+  .contact p { max-width: 62ch; }
+
+  footer { border-top: 1px solid var(--line); padding: 1.75rem 0 2.5rem; font-size: .86rem; color: var(--muted); }
+
+  @media (max-width: 720px) {
+    .topbar .brand { display: none; }
+    .topbar .wrap { justify-content: center; }
+    .profile { grid-template-columns: 1fr; gap: 1.5rem; padding: 2.5rem 0 2.5rem; }
+    .photo { width: 170px; font-size: 2.4rem; }
+    .pub-group { grid-template-columns: 1fr; gap: .5rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top">Sreeram Radhakrishnan</a>
+    <nav aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#publications">Publications</a>
+      <a href="Sreeram_cv.pdf" target="_blank" rel="noopener">CV</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+
+  <div class="profile">
+    <!-- To show your photo, place a portrait (3:4) image named photo.jpg in this folder. -->
+    <div class="photo"><span aria-hidden="true">SR</span><img src="photo.jpg" alt="Sreeram Radhakrishnan" onerror="this.remove()"></div>
+    <div>
+      <h1>Sreeram Radhakrishnan</h1>
+      <p class="position">B.Tech, Electrical Engineering<span>Indian Institute of Technology Madras, Chennai</span></p>
+      <ul class="links">
+        <li><a href="mailto:ee23b075@smail.iitm.ac.in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Email</a></li>
+        <li><a href="https://scholar.google.com/citations?user=v-L9WlAAAAAJ&amp;hl=en" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg>Google Scholar</a></li>
+        <li><a href="https://www.linkedin.com/in/sreeram-radhakrishnan/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg>LinkedIn</a></li>
+        <li><a href="Sreeram_cv.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 13h6M9 17h6"/></svg>CV</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="block" id="about">
+    <h2>About</h2>
+    <p class="lead">I am a final-year undergraduate in Electrical Engineering at the Indian Institute of Technology Madras, where I conduct research at <a href="https://brainseek-lab.github.io/brainseek-lab/index.html" target="_blank" rel="noopener">Brainseek Lab</a> under the guidance of <a class="nowrap" href="https://rbcdsai.iitm.ac.in/people/gopalakrishnan_srinivasan/" target="_blank" rel="noopener">Prof. Gopalakrishnan Srinivasan</a>.</p>
+    <p class="lead">My work sits at the intersection of computer architecture and neuromorphic computing. I am currently working on the architecture and RTL design of a dataflow-based, dual-sparse neuromorphic accelerator being developed at <a href="https://brainseek-lab.github.io/brainseek-lab/index.html" target="_blank" rel="noopener">Brainseek Lab, IIT Madras</a>.</p>
+    <p class="lead">Outside of research, I enjoy playing chess and basketball, and listening to music. I also love to travel, and there are few places I would rather be than on a mountain trail, where the climb is hard and the view is always worth it.</p>
+    <p class="lead">A full account of my work is available in my <a href="Sreeram_cv.pdf" target="_blank" rel="noopener">curriculum vitae</a>.</p>
+    <blockquote class="quote">Your best chapter hasn&rsquo;t been written yet,<br>write one worth reading at the end.</blockquote>
+  </section>
+
+  <section class="block" id="publications">
+    <h2>Publications</h2>
+
+    <div class="pub-group">
+      <div class="year">2026</div>
+      <div>
+        <article class="pub">
+          <span class="venue-tag">ISVLSI 2026</span>
+          <h3><a href="https://arxiv.org/abs/2608.19046" target="_blank" rel="noopener">APEX: A Dual-Sparsity Accelerator for Precise and Efficient SNN Inference</a></h3>
+          <p class="authors">Devgokul Bawa Venkatesh, <strong>Sreeram Radhakrishnan</strong>, Rajshekhar Rakshit, Gopalakrishnan Srinivasan</p>
+          <p class="venue">IEEE Computer Society Annual Symposium on VLSI (ISVLSI), 2026</p>
+          <p class="summary">A dual-sparsity SNN inference accelerator that integrates the PASC-IF neuron for ANN-equivalent accuracy, achieving on average 40% lower energy than the LoAS baseline in its best-accuracy configurations.</p>
+          <div class="actions">
+            <a href="https://arxiv.org/abs/2608.19046" target="_blank" rel="noopener">arXiv</a>
+            <a href="https://arxiv.org/pdf/2608.19046" target="_blank" rel="noopener">PDF</a>
+            <button type="button" aria-expanded="false" aria-controls="bib-apex" data-bib>BibTeX</button>
+          </div>
+          <div class="bibtex" id="bib-apex">
+            <button type="button" class="copy" data-copy="bib-apex-text">Copy</button>
+<pre id="bib-apex-text">@inproceedings{bawavenkatesh2026apex,
+  title     = {APEX: A Dual-Sparsity Accelerator for Precise and
+               Efficient SNN Inference},
+  author    = {Bawa Venkatesh, Devgokul and Radhakrishnan, Sreeram and
+               Rakshit, Rajshekhar and Srinivasan, Gopalakrishnan},
+  booktitle = {IEEE Computer Society Annual Symposium on VLSI (ISVLSI)},
+  year      = {2026}
+}</pre>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- Hidden for now; remove the comment markers to show the under-review paper again.
+    <div class="pub-group">
+      <div class="year">Under review</div>
+      <div>
+        <article class="pub">
+          <span class="venue-tag pending">HPCA 2027</span>
+          <h3>Follow-up work on dual-sparse neuromorphic acceleration</h3>
+          <p class="venue">Submitted to the IEEE International Symposium on High-Performance Computer Architecture (HPCA), 2027</p>
+        </article>
+      </div>
+    </div>
+    -->
+
+    <p class="scholar-note">For a complete and up-to-date list, see my <a href="https://scholar.google.com/citations?user=v-L9WlAAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar profile</a>.</p>
+  </section>
+
+  <section class="block contact" id="contact">
+    <h2>Contact</h2>
+    <p>I welcome enquiries about research collaborations in computer architecture and AI hardware.</p>
+    <p>Email: <a href="mailto:ee23b075@smail.iitm.ac.in">ee23b075@smail.iitm.ac.in</a><br>Department of Electrical Engineering, IIT Madras, Chennai 600036, India</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">&copy; 2026 Sreeram Radhakrishnan. Last updated September 2026.</div>
+</footer>
+
+<script>
+  document.querySelectorAll('[data-bib]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var box = document.getElementById(btn.getAttribute('aria-controls'));
+      var open = box.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+  document.querySelectorAll('[data-copy]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var text = document.getElementById(btn.getAttribute('data-copy')).textContent;
+      try {
+        navigator.clipboard.writeText(text).then(function () {
+          btn.textContent = 'Copied';
+          setTimeout(function () { btn.textContent = 'Copy'; }, 1500);
+        });
+      } catch (e) { /* clipboard unavailable; the text can still be selected manually */ }
+    });
+  });
+</script>
+</body>
+</html>
