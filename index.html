@@ -109,6 +109,12 @@
   .bibtex .copy { position: absolute; top: .5rem; right: .5rem; font: inherit; font-size: .78rem; background: #fff; border: 1px solid var(--line); border-radius: 5px; padding: .15rem .55rem; color: var(--text); cursor: pointer; }
   .scholar-note { margin-top: 2.25rem; font-size: .94rem; color: var(--muted); }
 
+  /* Coursework */
+  .courses { list-style: none; margin: 0; padding: 0; max-width: 44rem; }
+  .courses li { display: grid; grid-template-columns: 5.5rem 1fr; gap: 1rem; padding: .6rem 0; border-bottom: 1px solid var(--line); color: var(--ink); }
+  .courses li:first-child { border-top: 1px solid var(--line); }
+  .course-code { font-size: .9rem; font-weight: 600; letter-spacing: .02em; color: var(--accent); padding-top: .1rem; }
+
   /* Contact */
   .contact p { max-width: 62ch; }
 
@@ -117,6 +123,7 @@
   @media (max-width: 720px) {
     .topbar .brand { display: none; }
     .topbar .wrap { justify-content: center; }
+    .topbar nav { gap: 1rem; flex-wrap: wrap; justify-content: center; }
     .profile { grid-template-columns: 1fr; gap: 1.5rem; padding: 2.5rem 0 2.5rem; }
     .photo { width: 170px; font-size: 2.4rem; }
     .pub-group { grid-template-columns: 1fr; gap: .5rem; }
@@ -132,6 +139,7 @@
     <nav aria-label="Main">
       <a href="#about">About</a>
       <a href="#publications">Publications</a>
+      <a href="#coursework">Coursework</a>
       <a href="Sreeram_cv.pdf" target="_blank" rel="noopener">CV</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -210,6 +218,18 @@
     -->
 
     <p class="scholar-note">For a complete and up-to-date list, see my <a href="https://scholar.google.com/citations?user=v-L9WlAAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar profile</a>.</p>
+  </section>
+
+  <section class="block" id="coursework">
+    <h2>Coursework</h2>
+    <ul class="courses">
+      <li><span class="course-code">CS2600</span>Computer Organization and Architecture</li>
+      <li><span class="course-code">CS6230</span>CAD for VLSI</li>
+      <li><span class="course-code">EE6311</span>Embedded Memory Design</li>
+      <li><span class="course-code">EE5311</span>Digital IC Design</li>
+      <li><span class="course-code">CS6630</span>Secure Processor Microarchitecture</li>
+      <li><span class="course-code">EE6347</span>Devices and Technologies for AI and Neuromorphic Computing</li>
+    </ul>
   </section>
 
   <section class="block contact" id="contact">
